@@ -11,6 +11,13 @@ Bundle 'gmarik/vundle'
 " bundles
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
+Bundle 'mileszs/ack.vim'
+Bundle 'jlanzarotta/bufexplorer'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-bundler'
+Bundle 'thoughtbot/vim-rspec'
 
 set showmode " z.B. Insertmode anzeigen
 set showmatch " z.B. zugehörige Klammen zeigen
