@@ -5,7 +5,7 @@ My dotvim directory (now with vundle)
 ## Installation ##
 
     cd ~
-    git clone http://github.com/maikrhg/dotvim.git ~/.vim
+    git clone http://github.com/maikrhg/dotvim_vundle.git ~/.vim
     ln -s ~/.vim/vimrc ~/.vimrc
     mkdir ~/.vim_tmp
     vim
