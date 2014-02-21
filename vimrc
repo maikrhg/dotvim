@@ -102,6 +102,9 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+" hidden files in ctrlp
+let g:ctrlp_show_hidden = 1
+
 " HELPERFUNCTIONS
 function! CurDir()
     let curdir = substitute(getcwd(), '/Users/maik/', "~/", "g")
