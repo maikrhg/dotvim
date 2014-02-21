@@ -18,6 +18,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-bundler'
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'kien/ctrlp.vim'
 
 set showmode " z.B. Insertmode anzeigen
 set showmatch " z.B. zugehörige Klammen zeigen
@@ -75,24 +76,16 @@ syntax enable
 colorscheme jellybeans
 
 let mapleader = ","
-let delimitMate_expand_space = 1
-
 
 " Tastaturmappings
 "
 " für NERDTree
 nmap <silent> <c-n> :NERDTreeToggle<CR>
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
 set ttimeoutlen=50
-
-" for Command-T
-if &term =~ "xterm" || &term =~ "screen"
-  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
-  let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
-  let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
-endif
 
 " Format the statusline
 set statusline=\ %F%m%r%h\ %w\ %l/%L:%c:%P\ \ %y\ \ %{fugitive#statusline()}
