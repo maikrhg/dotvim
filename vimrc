@@ -104,6 +104,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 " hidden files in ctrlp
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_map = '<Leader>p'
 
 " HELPERFUNCTIONS
 function! CurDir()
