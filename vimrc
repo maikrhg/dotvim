@@ -103,6 +103,18 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+execute "set colorcolumn=" . join(range(81,335), ',')
+
 " hidden files in ctrlp
 let g:ctrlp_show_hidden = 1
+
 let g:ctrlp_map = '<Leader>p'
+
+" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+" ag is fast enough that CtrlP doesn't need to cache
+let g:ctrlp_use_caching = 0
+
+" use ag for ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
