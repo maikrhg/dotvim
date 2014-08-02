@@ -21,6 +21,8 @@ Bundle 'thoughtbot/vim-rspec'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-commentary'
 
+runtime macros/matchit.vim
+
 set showmode " z.B. Insertmode anzeigen
 set showmatch " z.B. zugehörige Klammen zeigen
 set showcmd " getipptes Kommando unten rechts anzeigen
