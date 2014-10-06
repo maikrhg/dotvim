@@ -28,7 +28,7 @@ set showmatch " z.B. zugehörige Klammen zeigen
 set showcmd " getipptes Kommando unten rechts anzeigen
 " set ruler " Zeilennummen unten rechts anzeigen
 set nojoinspaces " Keine Leerzeichen beim joinen
-set cpo+=$ " $ am Ende des mit c zu ersetzenden Teils anziegen
+set cpo+=$ " $ am Ende des mit c zu ersetzenden Teils anzeigen
 set modelines=0 " keine Modelines aufführen
 set hidden " ungespeicherte Buffer im Hintergrund erlauben
 set ignorecase " caseinsensitiv suchen
@@ -52,12 +52,16 @@ set tabstop=2
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 
+" no backups, no swapfiles
+set nobackup
+set nowritebackup
+set noswapfile
 " tell vim to keep a backup file
-set backup
+" set backup
 " tell vim where to put its backup files
-set backupdir=~/.vim_tmp
+" set backupdir=~/.vim_tmp
 " tell vim where to put swap files
-set dir=~/.vim_tmp
+" set dir=~/.vim_tmp
 
 "Whitespace handling
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
