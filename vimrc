@@ -40,13 +40,19 @@ set nu " Zeilennummern anzeigen
 set laststatus=2 " Statuszeile immer zeigen
 set foldmethod=syntax "Fold anhand der Syntax
 set foldlevelstart=99 "Default nicht folden
-
-" Einrückungszeug
 set autoindent
 set smartindent
-set shiftwidth=2
 set expandtab
-set tabstop=2
+
+augroup vimrc
+  autocmd!
+  autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim
+        \ setlocal shiftwidth=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal tabstop=2
+  autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim,cpp
+        \ autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+augroup end
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -63,7 +69,7 @@ set noswapfile
 " tell vim where to put swap files
 " set dir=~/.vim_tmp
 
-"Whitespace handling
+"Whitespace highlighting
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
 
@@ -124,3 +130,11 @@ let g:ctrlp_use_caching = 0
 
 " use ag for ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" functions
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
