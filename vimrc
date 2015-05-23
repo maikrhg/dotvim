@@ -3,23 +3,27 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
-" bundles
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails.git'
-Bundle 'mileszs/ack.vim'
-Bundle 'jlanzarotta/bufexplorer'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-bundler'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-commentary'
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails.git'
+Plugin 'mileszs/ack.vim'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-bundler'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'elixir-lang/vim-elixir'
+
+call vundle#end()
+filetype plugin indent on
 
 runtime macros/matchit.vim
 
@@ -82,7 +86,6 @@ if has('mouse')
   set mouse=a
 endif
 
-filetype plugin indent on
 syntax enable
 
 " Colorscheme laden
