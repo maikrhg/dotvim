@@ -96,10 +96,10 @@ let mapleader = ","
 " Tastaturmappings
 "
 " für NERDTree
-nmap <silent> <c-n> :NERDTreeToggle<CR>
+nnoremap <silent> <c-n> :NERDTreeToggle<CR>
 
 " Don't use Ex mode, use Q for formatting
-map Q gq
+noremap Q gq
 
 set ttimeoutlen=50
 
@@ -112,11 +112,11 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-nmap <silent> <leader>s :TestNearest<CR>
-nmap <silent> <leader>c :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
+nnoremap <silent> <leader>s :TestNearest<CR>
+nnoremap <silent> <leader>c :TestFile<CR>
+nnoremap <silent> <leader>a :TestSuite<CR>
+nnoremap <silent> <leader>l :TestLast<CR>
+nnoremap <silent> <leader>g :TestVisit<CR>
 
 execute "set colorcolumn=" . join(range(81,335), ',')
 
