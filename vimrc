@@ -47,6 +47,8 @@ set foldlevelstart=99 "Default nicht folden
 set autoindent
 set smartindent
 set expandtab
+set splitright
+set splitbelow
 
 augroup vimrc
   autocmd!
