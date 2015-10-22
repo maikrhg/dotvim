@@ -21,6 +21,7 @@ Plugin 'janko-m/vim-test'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'bodymindarts/vim-twitch'
 
 call vundle#end()
 filetype plugin indent on
@@ -119,6 +120,9 @@ nnoremap <silent> <leader>c :TestFile<CR>
 nnoremap <silent> <leader>a :TestSuite<CR>
 nnoremap <silent> <leader>l :TestLast<CR>
 nnoremap <silent> <leader>g :TestVisit<CR>
+
+nnoremap <silent> <leader>t :Twitch<CR>
+nnoremap <silent> <leader>vt :VTwitch<CR>
 
 execute "set colorcolumn=" . join(range(81,335), ',')
 
