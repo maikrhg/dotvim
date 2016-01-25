@@ -23,6 +23,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'bodymindarts/vim-twitch'
+Plugin 'dsawardekar/ember.vim'
 
 call vundle#end()
 filetype plugin indent on
