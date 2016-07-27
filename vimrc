@@ -135,7 +135,7 @@ nnoremap <silent> <leader>g :TestVisit<CR>
 nnoremap <silent> <leader>t :Twitch<CR>
 nnoremap <silent> <leader>vt :VTwitch<CR>
 
-nnoremap <silent> <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <silent> <leader>ev :e $MYVIMRC<cr>
 nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
 
 execute "set colorcolumn=" . join(range(81,335), ',')
