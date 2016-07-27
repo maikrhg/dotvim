@@ -24,6 +24,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'bodymindarts/vim-twitch'
 Plugin 'dsawardekar/ember.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 filetype plugin indent on
@@ -109,7 +111,12 @@ noremap Q gq
 set ttimeoutlen=50
 
 " Format the statusline
-set statusline=\ %F%m%r%h\ %w\ %l/%L:%c:%P\ \ %y\ \ %{fugitive#statusline()}
+" set statusline=\ %F%m%r%h\ %w\ %l/%L:%c:%P\ \ %y\ \ %{fugitive#statusline()}
+" Confgure airline
+let g:airline_powerline_fonts = 1
+let g:airline_symbols = {}
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.maxlinenr = ''
 
 " Disable cursor keys
 nnoremap <Left> :echoe "Use h"<CR>
