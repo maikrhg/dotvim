@@ -145,16 +145,14 @@ let g:ctrlp_show_hidden = 1
 
 let g:ctrlp_map = '<Leader>p'
 
-if executable('pt')
-  " Use pt in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'pt %s -l --nocolor --hidden --home-ptignore -g ""'
+" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-  " pt is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+" ag is fast enough that CtrlP doesn't need to cache
+let g:ctrlp_use_caching = 0
 
-  " use pt for ack
-  let g:ackprg = 'pt --nogroup --nocolor --column --home-ptignore'
-endif
+" use ag for ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " functions
 fun! <SID>StripTrailingWhitespaces()
