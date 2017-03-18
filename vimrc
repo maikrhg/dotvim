@@ -9,23 +9,19 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails.git'
 Plugin 'mileszs/ack.vim'
 Plugin 'jlanzarotta/bufexplorer'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-bundler'
-Plugin 'janko-m/vim-test'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'bodymindarts/vim-twitch'
-Plugin 'dsawardekar/ember.vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-commentary'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-surround'
+Plugin 'janko-m/vim-test'
 
 call vundle#end()
 filetype plugin indent on
