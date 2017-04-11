@@ -140,15 +140,13 @@ let g:ctrlp_show_hidden = 1
 
 let g:ctrlp_map = '<Leader>p'
 
-if executable('ag')
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+if executable('rg')
+  " use ripgrep for ack
+  let g:ackprg = 'rg --vimgrep --no-heading'
 
-  " ag is fast enough that CtrlP doesn't need to cache
+  " use ripgrep for ctrlp
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
   let g:ctrlp_use_caching = 0
-
-  " use ag for ack
-  let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
 " functions
