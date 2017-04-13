@@ -45,7 +45,7 @@ set t_vb= " auch nicht blinken
 set wildmenu " menu für commandlinecompletion
 set nu " Zeilennummern anzeigen
 set laststatus=2 " Statuszeile immer zeigen
-set foldmethod=syntax "Fold anhand der Syntax
+set foldmethod=indent
 set foldlevelstart=99 "Default nicht folden
 set autoindent
 set smartindent
