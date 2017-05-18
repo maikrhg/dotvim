@@ -49,7 +49,6 @@ set foldmethod=indent
 set foldlevelstart=99 "Default nicht folden
 set autoindent
 set smartindent
-set expandtab
 set splitright
 set splitbelow
 
@@ -58,7 +57,8 @@ augroup vimrc
   autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim
         \ setlocal shiftwidth=2 |
         \ setlocal softtabstop=2 |
-        \ setlocal tabstop=2
+        \ setlocal tabstop=2 |
+        \ setlocal expandtab
   autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim,cpp
         \ autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 augroup end
