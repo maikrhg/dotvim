@@ -21,6 +21,7 @@ Plugin 'rhysd/vim-crystal'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
+Plugin 'pangloss/vim-javascript'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-surround'
 Plugin 'janko-m/vim-test'
@@ -54,12 +55,12 @@ set splitbelow
 
 augroup vimrc
   autocmd!
-  autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim
+  autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim,elixir
         \ setlocal shiftwidth=2 |
         \ setlocal softtabstop=2 |
         \ setlocal tabstop=2 |
         \ setlocal expandtab
-  autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim,cpp
+  autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim,cpp,elixir
         \ autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 augroup end
 
