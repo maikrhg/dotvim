@@ -18,7 +18,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-commentary'
 Plugin 'rhysd/vim-crystal'
-Plugin 'elixir-lang/vim-elixir'
+Plugin 'elixir-editors/vim-elixir'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
@@ -57,12 +57,12 @@ set hlsearch
 
 augroup vimrc
   autocmd!
-  autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim,elixir
+  autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim,elixir,crystal
         \ setlocal shiftwidth=2 |
         \ setlocal softtabstop=2 |
         \ setlocal tabstop=2 |
         \ setlocal expandtab
-  autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim,cpp,elixir
+  autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim,cpp,elixir,crystal
         \ autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 augroup end
 
