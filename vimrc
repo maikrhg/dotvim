@@ -52,6 +52,7 @@ set autoindent
 set smartindent
 set splitright
 set splitbelow
+set hlsearch
 
 augroup vimrc
   autocmd!
@@ -106,6 +107,8 @@ nnoremap <silent> <c-n> :NERDTreeToggle<CR>
 
 " Don't use Ex mode, use Q for formatting
 noremap Q gq
+
+nnoremap <CR> :nohlsearch<CR><CR>
 
 set ttimeoutlen=50
 
