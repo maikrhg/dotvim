@@ -27,6 +27,7 @@ Plugin 'fatih/vim-go'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-surround'
 Plugin 'janko-m/vim-test'
+Plugin 'martinda/Jenkinsfile-vim-syntax'
 
 call vundle#end()
 filetype plugin indent on
