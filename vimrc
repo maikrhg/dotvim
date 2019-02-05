@@ -111,6 +111,9 @@ nnoremap <silent> <c-n> :NERDTreeToggle<CR>
 " Don't use Ex mode, use Q for formatting
 noremap Q gq
 
+" Use <leader>o to jump to implementation
+nnoremap <leader>o <c-]>
+
 nnoremap <CR> :nohlsearch<CR><CR>
 
 set ttimeoutlen=50
@@ -146,6 +149,7 @@ execute "set colorcolumn=" . join(range(81,335), ',')
 let g:ctrlp_show_hidden = 1
 
 let g:ctrlp_map = '<Leader>p'
+nnoremap <silent> <leader>t :CtrlPTag<cr>
 
 if executable('rg')
   " use ripgrep for ack
