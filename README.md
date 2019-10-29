@@ -1,6 +1,6 @@
 # dotvim #
 
-My dotvim directory (now with vundle)
+My dotvim directory (now with plug)
 
 ## Installation ##
 
@@ -9,15 +9,9 @@ My dotvim directory (now with vundle)
     ln -s ~/.vim/vimrc ~/.vimrc
     mkdir ~/.vim_tmp (optional)
     cd ~/.vim
-    git submodule init
-    git submodule update
     vim
-    :BundleInstall
 
-Install Ag (the silver searcher) with Homebrew:
+Install Ag (the silver searcher) & ripgrep with Homebrew:
 
     brew install ag
-
-## Upgrade all bundles ##
-
-    :BundleInstall!
+    brew install ripgrep
