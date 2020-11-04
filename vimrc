@@ -52,56 +52,52 @@ call plug#end()
 
 runtime macros/matchit.vim
 
-set showmode " z.B. Insertmode anzeigen
-set showmatch " z.B. zugehörige Klammen zeigen
-set showcmd " getipptes Kommando unten rechts anzeigen
-" set ruler " Zeilennummen unten rechts anzeigen
-set nojoinspaces " Keine Leerzeichen beim joinen
-set cpo+=$ " $ am Ende des mit c zu ersetzenden Teils anzeigen
-set modelines=0 " keine Modelines aufführen
-set hidden " ungespeicherte Buffer im Hintergrund erlauben
-set ignorecase " caseinsensitiv suchen
-set smartcase " bei Großschreibung casesensitiv suchen
-set visualbell " blinken statt geräusche
-set t_vb= " auch nicht blinken
-set wildmenu " menu für commandlinecompletion
-set nu " Zeilennummern anzeigen
-set laststatus=2 " Statuszeile immer zeigen
-set foldmethod=indent
-set foldlevelstart=99 "Default nicht folden
 set autoindent
-set smartindent
-set splitright
-set splitbelow
+set cpo+=$ " $ show string after c
+set foldlevelstart=99
+set foldmethod=indent
+set hidden " allow unsaved buffers in background
 set hlsearch
+set ignorecase " ignore case
+set laststatus=2 " Always display status line
+set modelines=0 " no modelines
+set nojoinspaces " no whitespace after join
+set number " show line numbers
+set ruler " show line and column numbers of the cursor
+set showcmd " show command in statusline
+set showmatch " show matching brackets
+set showmode " show current mode
+set smartcase " search with smart case
+set smartindent
+set splitbelow
+set splitright
+set visualbell " blink
+set wildmenu " use wildmenu in commandline
+set scrolloff=3
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set whichwrap+=<,>,h,l
+set nobackup
+set nowritebackup
+set noswapfile
+set ttimeoutlen=50
+
+if has('mouse')
+  set mouse=a
+endif
+
+let mapleader = ","
 
 augroup vimrc
   autocmd!
   autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim,elixir,crystal
         \ setlocal shiftwidth=2 |
-        \ setlocal softtabstop=2 |
         \ setlocal tabstop=2 |
         \ setlocal expandtab
   autocmd FileType ruby,haml,html,eruby,yaml,sass,css,javascript,cucumber,vim,cpp,elixir,crystal
         \ autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 augroup end
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-set whichwrap+=<,>,h,l
-
-" no backups, no swapfiles
-set nobackup
-set nowritebackup
-set noswapfile
-" tell vim to keep a backup file
-" set backup
-" tell vim where to put its backup files
-" set backupdir=~/.vim_tmp
-" tell vim where to put swap files
-" set dir=~/.vim_tmp
-
-"Whitespace highlighting
+" Whitespace highlighting
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
 
@@ -109,20 +105,9 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 highlight ExtraLines ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
 
-" Colorscheme laden
+" Colorscheme
 colorscheme jellybeans
-
-let mapleader = ","
-
-" Tastaturmappings
-"
-" für NERDTree
-nnoremap <silent> <c-n> :NERDTreeToggle<CR>
 
 " Don't use Ex mode, use Q for formatting
 noremap Q gq
@@ -132,17 +117,7 @@ nnoremap <leader>o <c-]>
 
 nnoremap <CR> :nohlsearch<CR><CR>
 
-set ttimeoutlen=50
-
-" Format the statusline
-" set statusline=\ %F%m%r%h\ %w\ %l/%L:%c:%P\ \ %y\ \ %{fugitive#statusline()}
-" Confgure airline
-let g:airline_powerline_fonts = 1
-if !exists("g:airline_symbols")
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.maxlinenr = ''
+execute "set colorcolumn=" . join(range(81,335), ',')
 
 " Disable cursor keys
 nnoremap <Left> :echoe "Use h"<CR>
@@ -150,20 +125,30 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" Edit and source vimrc
+nnoremap <silent> <leader>ev :e $MYVIMRC<cr>
+nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
+
+" NERDTree
+nnoremap <silent> <c-n> :NERDTreeToggle<CR>
+
+" Airline
+let g:airline_powerline_fonts = 1
+if !exists("g:airline_symbols")
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.maxlinenr = ''
+
+" vim-test
 nnoremap <silent> <leader>s :TestNearest<CR>
 nnoremap <silent> <leader>c :TestFile<CR>
 nnoremap <silent> <leader>a :TestSuite<CR>
 nnoremap <silent> <leader>l :TestLast<CR>
 nnoremap <silent> <leader>g :TestVisit<CR>
 
-nnoremap <silent> <leader>ev :e $MYVIMRC<cr>
-nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
-
-execute "set colorcolumn=" . join(range(81,335), ',')
-
-" hidden files in ctrlp
+" ctrlp
 let g:ctrlp_show_hidden = 1
-
 let g:ctrlp_map = '<Leader>p'
 nnoremap <silent> <leader>t :CtrlPTag<cr>
 
