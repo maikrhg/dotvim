@@ -152,9 +152,12 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_map = '<Leader>p'
 nnoremap <silent> <leader>t :CtrlPTag<cr>
 
+" ack
+let g:ack_use_cword_for_empty_search = 1
+
 if executable('rg')
   " use ripgrep for ack
-  let g:ackprg = 'rg --vimgrep --no-heading'
+  let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
 
   " use ripgrep for ctrlp
   let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
