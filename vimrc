@@ -140,6 +140,7 @@ if !exists("g:airline_symbols")
 endif
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
+let g:airline_theme='jellybeans'
 
 " vim-test
 nnoremap <silent> <leader>s :TestNearest<CR>
