@@ -10,9 +10,8 @@ Plug 'gmarik/Vundle.vim'
 Plug 'mileszs/ack.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'nanotech/jellybeans.vim'
+Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
-Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
@@ -20,7 +19,6 @@ Plug 'rhysd/vim-crystal'
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 Plug 'zah/nim.vim'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
 Plug 'fatih/vim-go'
@@ -48,6 +46,13 @@ Plug 'prettier/vim-prettier', {
     \ 'html',
     \ 'swift' ] }
 Plug 'ryanoasis/vim-devicons'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 call plug#end()
 
@@ -108,7 +113,12 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 
 " Colorscheme
-colorscheme jellybeans
+let g:gruvbox_italic='1'
+let g:gruvbox_contrast_dark='hard'
+set background=dark
+set termguicolors
+colorscheme gruvbox
+
 
 " Don't use Ex mode, use Q for formatting
 noremap Q gq
@@ -140,7 +150,7 @@ if !exists("g:airline_symbols")
 endif
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
-let g:airline_theme='jellybeans'
+let g:airline_theme='gruvbox'
 
 " vim-test
 nnoremap <silent> <leader>s :TestNearest<CR>
@@ -165,6 +175,51 @@ if executable('rg')
   let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
   let g:ctrlp_use_caching = 0
 endif
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
+
+" lsp
+let g:LanguageClient_serverCommands = {
+\   'nim': ['~/.nimble/bin/nimlsp'],
+\   'javascript': ['typescript-language-server', '--stdio'],
+\   'typescript': ['typescript-language-server', '--stdio'],
+\ }
+nmap <F5> <Plug>(lcn-menu)
+let g:LanguageClient_diagnosticsDisplay={
+  \       '1': {
+  \           'name': 'Error',
+  \           'texthl': '',
+  \           'signText': '✖',
+  \           'signTexthl': 'ALEErrorSign',
+  \       },
+  \       '2': {
+  \           'name': 'Warning',
+  \           'texthl': '',
+  \           'signText': '⚠',
+  \           'signTexthl': 'ALEWarningSign',
+  \       },
+  \       '3': {
+  \           'name': 'Information',
+  \           'texthl': '',
+  \           'signText': 'ℹ',
+  \           'signTexthl': 'ALEInfoSign',
+  \       },
+  \       '4': {
+  \           'name': 'Hint',
+  \           'texthl': '',
+  \           'signText': '➤',
+  \           'signTexthl': 'ALEInfoSign',
+  \       },
+  \  }
+
+" debug stuff
+" let g:LanguageClient_loggingLevel = 'INFO'
+" let g:LanguageClient_virtualTextPrefix = ''
+" let g:LanguageClient_loggingFile =  expand('~/LanguageClient.log')
+" let g:LanguageClient_serverStderr = expand('~/LanguageServer.log')
+
 
 " functions
 fun! <SID>StripTrailingWhitespaces()
