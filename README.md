@@ -1,6 +1,6 @@
-# dotvim #
+# .vim #
 
-My dotvim directory (now with plug)
+My .vim directory (now with plug)
 
 ## Installation ##
 
